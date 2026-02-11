@@ -34,14 +34,14 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 - Observed write restrictions for standard users
 
 ### Task 3 – User & Privilege Management
-Created standard user account student123
-Verified account creation using net user student123
-Added student123 to Remote Desktop Users group
-Added student123 to Administrators group
-Verified group membership using net localgroup administrators
-Logged in as student123 via RDP
-Attempted software installation (7-Zip)
-Observed UAC behavior before and after administrative group membership
-Confirmed privilege escalation by successful software installation
+- Created local user account `student123` using `net user student123 /add`
+- Verified account creation using `net user student123`
+- Added `student123` to `Remote Desktop Users` group using `net localgroup "Remote Desktop Users" student123 /add`
+- Added `student123` to `Administrators` group using `net localgroup administrators student123 /add`
+- Verified group membership using `net localgroup administrators` and `net localgroup "Remote Desktop Users"`
+- Logged in as `student123` via RDP
+- Attempted 7-Zip software installation to test privilege level
+- Observed UAC prompt requesting elevation
+- Confirmed elevated privileges by successful software installation
 
 ---
