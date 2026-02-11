@@ -44,4 +44,35 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 - Observed UAC prompt requesting elevation
 - Confirmed elevated privileges by successful software installation
 
----
+
+### Task 4 – Running Process & Resource Analysis
+
+- Opened Task Manager and analyzed active processes
+- Identified top CPU-consuming processes:
+  - News and interests (14) – 28.1%
+  - System – 13.0%
+  - Task Manager – 2.1%
+  - Antimalware Service Executable – 1.8%
+  - Service Host: Local System – 1.7%
+
+- Identified top memory-consuming processes:
+  - Antimalware Service Executable – 47.7 MB
+  - Service Host: Network Service – 29.0 MB
+  - Runtime Broker (7) – 21.2 MB
+  - Microsoft Edge – 16.3 MB
+  - Task Manager – 13.5 MB
+
+- Observed overall system utilization:
+  - CPU usage ranged between 10–14%
+  - Memory usage ranged between 90–92%
+  - Disk usage peaked at 7%
+  - Network utilization remained minimal (0–136 Kbps)
+
+- Opened Resource Monitor and analyzed:
+  - Active Disk I/O activity (pagefile.sys and System processes)
+  - Network connections from svchost.exe and Windows Azure Guest Agent
+  - Background service communication to external and internal cloud endpoints
+
+- Launched Notepad and terminated the process via Task Manager
+- Confirmed immediate process removal and resource release
+- Observed real-time process lifecycle behavior from a SOC monitoring perspective
