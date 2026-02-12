@@ -223,23 +223,50 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 
 - Filtered Security log for Event ID `4624` (Successful Logon)
 
-- Observed Event Details:
-  - Event ID: 4624
-  - Task Category: Logon
-  - Level: Information
-  - Keywords: Audit Success
-  - Computer Name: Win10Lab
+### Task 10 – Review Built-In Windows Security Controls
 
-- Identified Logon Information:
-  - Account Name: Win10Lab$
-  - Account Domain: WORKGROUP
-  - Logon Type: 5 (Service Logon)
-  - Elevated Token: Yes
+- Opened Windows Security and navigated to **Virus & Threat Protection**
+- Executed Quick Scan using Microsoft Defender Antivirus
+- Observed scan results:
+  - Last Scan: 2/12/2026 6:12 AM
+  - Scan Type: Quick Scan
+  - Files Scanned: 28,705
+  - Threats Found: 0
+  - Scan Duration: 42 seconds
+- Confirmed real-time protection active with no action required
 
-- Confirmed successful authentication event recorded in Security logs
+- Opened Windows Defender Firewall management console using `wf.msc`
+- Reviewed firewall profile configuration:
+  - Firewall State: On (recommended)
+  - Inbound Connections: Block (default)
+  - Outbound Connections: Allow (default)
+- Verified Domain, Private, and Public profiles enabled
+- Confirmed firewall operating under Local Computer policy
 
-- Validated understanding of how Windows logs authentication activity for forensic investigation
+- Opened Local Security Policy using `secpol.msc`
+- Reviewed Account Policies → Password Policy:
+  - Enforce Password History: 0 passwords remembered
+  - Maximum Password Age: 42 days
+  - Minimum Password Age: 0 days
+  - Minimum Password Length: 0 characters
+  - Password Must Meet Complexity Requirements: Disabled
+  - Store Passwords Using Reversible Encryption: Disabled
 
+- Reviewed Account Lockout Policy:
+  - Account Lockout Duration: 10 minutes
+  - Account Lockout Threshold: 10 invalid logon attempts
+  - Reset Account Lockout Counter After: 10 minutes
+  - Allow Administrator Account Lockout: Enabled
 
-  - Data export for incident documentation and forensic review
+- Reviewed Advanced Audit Policy Configuration:
+  - Categories Present: Account Logon, Account Management, Logon/Logoff, Object Access, Policy Change, Privilege Use, System
+  - Current Status: Not Configured
 
+- Validated built-in endpoint security controls including:
+  - Microsoft Defender Antivirus
+  - Windows Defender Firewall
+  - User Account Control (UAC)
+  - Account lockout enforcement
+  - Audit policy framework
+  - Account lockout enforcement
+  - Audit policy framework
