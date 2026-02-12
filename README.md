@@ -210,9 +210,36 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 - Exported process data using:
   - `Get-Process | Export-Csv processes.csv`
 - Verified successful creation of `processes.csv` in user directory
-
-- Demonstrated:
+- Demonstrated: 
   - PowerShell object-based enumeration
   - Administrative visibility into processes, services, users, and logs
+
+### Task 9 – Investigate Windows Event Logs
+
+- Opened Event Viewer using `eventvwr.msc`
+
+- Navigated to:
+  - Windows Logs → Security
+
+- Filtered Security log for Event ID `4624` (Successful Logon)
+
+- Observed Event Details:
+  - Event ID: 4624
+  - Task Category: Logon
+  - Level: Information
+  - Keywords: Audit Success
+  - Computer Name: Win10Lab
+
+- Identified Logon Information:
+  - Account Name: Win10Lab$
+  - Account Domain: WORKGROUP
+  - Logon Type: 5 (Service Logon)
+  - Elevated Token: Yes
+
+- Confirmed successful authentication event recorded in Security logs
+
+- Validated understanding of how Windows logs authentication activity for forensic investigation
+
+
   - Data export for incident documentation and forensic review
 
