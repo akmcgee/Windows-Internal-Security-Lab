@@ -125,6 +125,42 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
   - Type: REG_SZ
   - Data: `C:\Users\Katana\AppData\Local\Microsoft\OneDrive\OneDrive.exe /background`
   - Purpose: Launches OneDrive in background at user logon
+ 
+### Task 7 – Examine Windows Networking Configuration
+
+- Executed `ipconfig /all` to review full network configuration
+- Identified:
+  - IPv4 Address: 172.16.0.4
+  - Subnet Mask: 255.255.255.0
+  - Default Gateway: 172.16.0.1
+  - DNS Server: 168.63.129.16
+  - DHCP Enabled: Yes
+  - Network Adapter: Microsoft Hyper-V Network Adapter
+
+- Executed `arp -a` to review ARP table mappings
+- Observed dynamic and static ARP entries for local subnet (172.16.0.x)
+
+- Executed `netstat -ano` to review active connections and listening ports
+- Identified:
+  - Port 135 (RPC) listening – PID 972
+  - Port 445 (SMB) listening – PID 4 (System)
+  - Port 3389 (RDP) listening – PID 724
+  - Multiple outbound HTTPS (443) connections in ESTABLISHED state
+  - Several high ephemeral ports (49xxx–50xxx range)
+
+- Executed `route print` to review routing table
+- Confirmed default route via 172.16.0.1
+
+- Observed no local web service actively listening on port 80
+- Identified multiple outbound connections using port 443 (HTTPS)
+
+- Demonstrated understanding of:
+  - IP configuration analysis
+  - ARP resolution
+  - Port and PID correlation
+  - Network-based process identification
+  - SOC-level network visibility investigation
+
 
 - Created temporary string value `TestEntry` (REG_SZ) under HKCU Run key
 - Verified new startup entry appeared in registry list
