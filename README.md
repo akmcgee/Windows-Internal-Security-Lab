@@ -70,6 +70,36 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 
 - Opened Resource Monitor and analyzed:
   - Active Disk I/O activity (pagefile.sys and System processes)
+ 
+### Task 5 – Inspect & Control Windows Services
+
+- Opened Services Console using `services.msc`
+
+- Located Windows Update service
+- Observed:
+  - Startup Type: Manual (Trigger Start)
+  - Status: Running
+  - Log On As: Local System
+  - Description: "Enables the detection, download, and installation of updates for Windows and other programs. If this service is disabled, users of this computer will not be able to use Windows Update or its automatic updating feature, and programs will not be able to use the Windows Update Agent (WUA) API."
+
+- Located Windows Defender Firewall service
+- Observed:
+  - Startup Type: Automatic
+  - Status: Running
+  - Log On As: Local Service
+  - Description: "Windows Defender Firewall helps protect your computer by preventing unauthorized users from gaining access to your computer through the Internet or a network."
+
+- Located DHCP Client service
+- Observed:
+  - Startup Type: Automatic
+  - Status: Running
+  - Log On As: Local Service
+  - Description: "Registers and updates IP addresses and DNS records for this computer. If this service is stopped, this computer will not receive dynamic IP addresses and DNS updates. If this service is disabled, any services that explicitly depend on it will fail to start."
+
+- Stopped and restarted a non-critical service (Print Spooler)
+- Observed service state transition from Running → Stopped → Running
+- Validated how service configuration impacts system functionality and network availability
+
   - Network connections from svchost.exe and Windows Azure Guest Agent
   - Background service communication to external and internal cloud endpoints
 
