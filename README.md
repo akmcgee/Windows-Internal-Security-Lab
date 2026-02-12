@@ -106,3 +106,29 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 - Launched Notepad and terminated the process via Task Manager
 - Confirmed immediate process removal and resource release
 - Observed real-time process lifecycle behavior from a SOC monitoring perspective
+
+
+### Task 6 – Explore Windows Registry & Startup Entries
+
+- Opened Registry Editor using `regedit`
+
+- Navigated to `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`
+- Observed:
+  - Entry Name: `SecurityHealth`
+  - Type: REG_EXPAND_SZ
+  - Data: `%windir%\system32\SecurityHealthSystray.exe`
+  - Purpose: Windows Security notification icon at startup
+
+- Navigated to `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`
+- Observed:
+  - Entry Name: `OneDrive`
+  - Type: REG_SZ
+  - Data: `C:\Users\Katana\AppData\Local\Microsoft\OneDrive\OneDrive.exe /background`
+  - Purpose: Launches OneDrive in background at user logon
+
+- Created temporary string value `TestEntry` (REG_SZ) under HKCU Run key
+- Verified new startup entry appeared in registry list
+- Deleted `TestEntry` to restore original configuration
+
+- Identified how `Run` registry keys can be leveraged for persistence mechanisms
+- Reinforced awareness of registry-based startup abuse in malware investigations
