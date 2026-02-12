@@ -168,4 +168,51 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
   - SOC-level network visibility investigation
 
 
+### Task 8 – Basic Administration Using PowerShell
+
+- Executed `Get-Process` to enumerate all running processes
+- Observed:
+  - System processes including `csrss`, `lsass`, `svchost`, and `MsMpEng`
+  - User processes including `powershell`, `msedgewebview2`, and `OneDrive`
+  - Resource metrics such as CPU time, memory usage, and process IDs
+
+- Executed `Get-Service` to enumerate all system services
+- Identified running and stopped services including:
+  - AppInfo (Application Information)
+  - BITS (Background Intelligent Transfer Service)
+  - DcomLaunch
+  - CryptSvc
+
+- Executed `Get-LocalUser` to enumerate local accounts
+- Observed:
+  - DefaultAccount (Disabled)
+  - Guest (Disabled)
+  - Katana (Enabled – Built-in Administrator)
+  - student123 (Enabled – Standard user)
+  - WDAGUtilityAccount (Disabled)
+
+- Executed `Get-EventLog -LogName System -Newest 20`
+- Reviewed recent system events including:
+  - Windows Update installation events
+  - DHCP client service start events
+  - TPM provisioning messages
+  - DCOM warning entries
+
+- Filtered services using:
+  - `Get-Service | Where-Object { $_.Name -like "Win*" }`
+- Identified services beginning with “Win” including:
+  - WinDefend (Microsoft Defender Antivirus Service)
+  - WindowsAzureGuestAgent
+  - WinHttpAutoProxySvc
+  - Winmgmt
+  - WinRM
+
+- Exported process data using:
+  - `Get-Process | Export-Csv processes.csv`
+- Verified successful creation of `processes.csv` in user directory
+
+- Demonstrated:
+  - PowerShell object-based enumeration
+  - Administrative visibility into processes, services, users, and logs
+  - Data export for incident documentation and forensic review
 
