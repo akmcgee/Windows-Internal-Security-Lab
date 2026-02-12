@@ -125,6 +125,12 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
   - Type: REG_SZ
   - Data: `C:\Users\Katana\AppData\Local\Microsoft\OneDrive\OneDrive.exe /background`
   - Purpose: Launches OneDrive in background at user logon
+ - Created temporary string value `TestEntry` (REG_SZ) under HKCU Run key
+- Verified new startup entry appeared in registry list
+- Deleted `TestEntry` to restore original configuration
+
+- Identified how `Run` registry keys can be leveraged for persistence mechanisms
+- Reinforced awareness of registry-based startup abuse in malware investigations
  
 ### Task 7 – Examine Windows Networking Configuration
 
@@ -162,9 +168,4 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
   - SOC-level network visibility investigation
 
 
-- Created temporary string value `TestEntry` (REG_SZ) under HKCU Run key
-- Verified new startup entry appeared in registry list
-- Deleted `TestEntry` to restore original configuration
 
-- Identified how `Run` registry keys can be leveraged for persistence mechanisms
-- Reinforced awareness of registry-based startup abuse in malware investigations
