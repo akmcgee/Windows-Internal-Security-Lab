@@ -52,6 +52,7 @@ Command Prompt
 Registry Editor
 
 🔎 Investigation Tasks & Findings
+
 ✅ Task 1 — Process Inspection (Sysinternals)
 
 Inspected explorer.exe using Process Explorer
