@@ -41,8 +41,8 @@ Hands-on Windows 10 security lab in Azure analyzing processes, NTFS permissions,
 - Verified group membership using `net localgroup administrators` and `net localgroup "Remote Desktop Users"`
 - Logged in as `student123` via RDP
 - Attempted 7-Zip software installation to test privilege level
-- Observed UAC prompt requesting elevation
-- Confirmed elevated privileges by successful software installation
+-During the 7-Zip installation test, a UAC elevation prompt was triggered,
+-confirming that the student123 account required administrative approval to perform software installation tasks.
 
 
 ### Task 4 – Running Process & Resource Analysis
