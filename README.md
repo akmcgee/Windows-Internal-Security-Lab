@@ -1,7 +1,7 @@
 🛡️ Windows Internal Security Lab — SOC Investigation Report
 📌 Project Overview
 
-This hands-on Windows 10 security lab was conducted in a Microsoft Azure virtual machine to simulate real Security Operations Center (SOC) investigation workflows. The objective was to analyze Windows internals, review system protections, investigate authentication events, and validate built-in endpoint security controls from a defensive cybersecurity perspective.
+This hands-on Windows 10 security lab was conducted in a Microsoft Azure virtual machine to simulate real Security Operations Center (SOC) investigation workflows. The objective was to analyze Windows internals, review system protections, investigate authentication events, and validate built-in endpoint security controls from a defensive cybersecurity perspective.This project demonstrates Windows troubleshooting, system administration, and endpoint security analysis skills relevant to Help Desk and SOC analyst roles.
 
 The lab focused on process inspection, NTFS permissions, user privilege management, network visibility, registry persistence mechanisms, event log analysis, and system security policy review.
 
